@@ -18,5 +18,8 @@
       { "property": "myFavoriteWrapper" }
     ],
     "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }]
+  },
+  "rules": {
+    "no-console": "off"
   }
 }

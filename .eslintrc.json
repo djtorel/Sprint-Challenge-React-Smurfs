@@ -20,6 +20,7 @@
     "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }]
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "react/prop-types": "ignore"
   }
 }

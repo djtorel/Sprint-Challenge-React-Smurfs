@@ -19,12 +19,24 @@ class App extends Component {
   // API URL constant for re-use
   API_URL = 'http://localhost:3333';
 
-  // Get /smurfs API end point
+  // GET /smurfs API end point
   getSmurfs = () => {
     axios
       .get(`${this.API_URL}/smurfs`)
       .then(res => {
         this.setState({ smurfs: [...res.data] });
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+
+  // POST /smurfs API endpoint
+  postSmurf = smurf => {
+    axios
+      .post(`${this.API_URL}/smurfs`, smurf)
+      .then(res => {
+        this.getSmurfs();
       })
       .catch(err => {
         console.error(err);
@@ -37,9 +49,10 @@ class App extends Component {
   }
 
   render() {
+    const { postSmurf } = this;
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm postSmurf={postSmurf} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );

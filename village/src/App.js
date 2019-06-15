@@ -17,12 +17,12 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   // API URL constant for re-use
-  API_URL = 'http://localhost:3333';
+  API_URL = 'http://localhost:3333/smurfs';
 
   // GET /smurfs API end point
   getSmurfs = () => {
     axios
-      .get(`${this.API_URL}/smurfs`)
+      .get(this.API_URL)
       .then(res => {
         this.setState({ smurfs: [...res.data] });
       })
@@ -34,7 +34,7 @@ class App extends Component {
   // POST /smurfs API endpoint
   postSmurf = smurf => {
     axios
-      .post(`${this.API_URL}/smurfs`, smurf)
+      .post(this.API_URL, smurf)
       .then(() => {
         this.getSmurfs();
       })

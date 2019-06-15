@@ -35,7 +35,7 @@ class App extends Component {
   postSmurf = smurf => {
     axios
       .post(`${this.API_URL}/smurfs`, smurf)
-      .then(res => {
+      .then(() => {
         this.getSmurfs();
       })
       .catch(err => {

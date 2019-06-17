@@ -8,18 +8,27 @@ class SmurfForm extends Component {
       age: '',
       height: ''
     };
+    this.postSmurf = props.postSmurf;
   }
 
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
+    // Using object destructuring to pull variables out of `this`
+    const {
+      state: { name, age, height },
+      postSmurf
+    } = this;
+
+    // Calling postSmurf with the name, age, height from this.state.props
+    postSmurf({ name, age, height });
 
     this.setState({
       name: '',
       age: '',
       height: ''
     });
-  }
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
